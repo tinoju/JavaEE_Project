@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Project Detail</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+			<h2>Project Information Detail:</h2>
+			<div class="my-3">
+			    <p><strong>ID:</strong> <span th:text="${projectDetail.id}"></span></p>
+			    <p><strong>Title:</strong> <span th:text="${projectDetail.title}"></span></p>
+			    <p><strong>Type:</strong> <span th:text="${typeProject}"></span></p>
+			    <p><strong>Color:</strong> <span th:text="${projectDetail.color}"></span></p>
+			    <p><strong>Price:</strong> <span th:text="${projectDetail.price}"></span></p>
+			    <p><strong>Launch Date:</strong> <span th:text="${projectDetail.launchDate}"></span></p>
+			    <p><strong>Duration Days:</strong> <span th:text="${projectDetail.days}"></span></p>
+			    <p><strong>Job Numbers:</strong> <span th:text="${projectDetail.job_number_es}"></span></p>
+			    <p><strong>Created By:</strong> <span th:text="${projectDetail.person_creat}"></span></p>
+			    <p><strong>Status:</strong> <span th:text="${code_status_project}"></span></p>
+			    <p><strong>Manager:</strong> <span th:text="${projectDetail.manager}"></span></p>
+			    <p><strong>Members Join:</strong> <span th:text="${projectDetail.members}"></span></p>
+			    <p><strong>Description:</strong> <span th:text="${projectDetail.description}"></span></p>
+			    
+			</div>
+			
+        </div>
+    </div>
+</div>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+<h2>Job Details</h2>
+<div class="my-3" th:each="job : ${jobDetailList}" >	
+		<p><strong>ID:</strong> <span th:text="${job.id}"></span></p>
+	    <p><strong>Title:</strong> <span th:text="${job.title}"></span></p>
+	    <p><strong>Score:</strong> <span th:text="${job.score}"></span></p>
+	    <p><strong>Member Job:</strong> <span th:text="${job.member_job}"></span></p>
+	    <p><strong>Days:</strong> <span th:text="${job.days}"></span></p>
+	    <p><strong>Person create:</strong> <span th:text="${job.person_create}"></span></p>
+	    <p><strong>Launch Date:</strong> <span th:text="${job.launchDate}"></span></p>
+	    <p><strong>Person updated:</strong> <span th:text="${job.person_updated}"></span></p>
+	    <p><strong>Update Date:</strong> <span th:text="${job.launchDate_updated}"></span></p>
+	    <!-- <p><strong>Code Status:</strong> <span th:text="${code_status_job_view}"></span></p> -->
+	    <p><strong>Completed:</strong> <span th:text="${job.home_flag} ? 'Yes' : 'No'"></span></p>
+	    <p><strong>Complete Date:</strong> <span th:text="${job.time_completed}"></span></p><br>
+   
+</div>
+<a th:href="@{/process}">PROCESS</a><br>
+
+        </div>
+    </div>
+</div>
+<div th:each="code_status_job_view : ${code_status_job_view_list}">
+		
+	<p><strong>Code Status:</strong> <span th:text="${code_status_job_view}"></span></p>
+	    
+</div>
+</body>
+</html>  

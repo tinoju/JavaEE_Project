@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Setup Jobs</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+	<!-- Include _menu.html -->
+      <!-- <th:block th:include="/setupJobs"></th:block> -->
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+			<h2>Setup Jobs:</h2>
+			<div class="my-3">
+			    
+			    <h4>View Job Numbers ES</h4>
+			    <div th:each="i : ${#numbers.sequence( 1, numberJobs, 1)}">
+					
+				   		<a th:text="${ i } "></a>
+						<a th:href="@{/create-job}">Setup Job</a>
+				</div>
+			  	<div>
+			  		<a th:href="@{/create-job}" >Create more job</a>|
+			  	</div> 
+			  	<h4>View Member</h4>
+			    <div th:each="i : ${#numbers.sequence( 1, memberJobs, 1)}">
+					
+				   		<a th:text="${ i } "></a>
+						<input type='text' name='member' value=''>
+				</div>
+			  	<div>
+			  		<a th:href="@{/add-member}" >Add more member</a>|
+			  	</div> 
+			</div>
+			<a th:href="@{/project-detail}">Project Details</a><br>
+
+		
+        </div>
+    </div>
+</div>
+
+</body>
+</html> 

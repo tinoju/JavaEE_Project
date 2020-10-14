@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title th:utext="${title}"></title>
+   </head>
+   <body>
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+       
+      <h2>Admin Page</h2>
+      <h3>Welcome :
+         <span th:utext="${#request.userPrincipal.name}"></span>
+      </h3>
+      <b>This is protected page!</b>  
+       
+      <br/><br/>
+       
+      <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+      
+      TEST MENU VIEW
+      <table>
+		   <tr th:each="cate: ${categoryInfoList}">
+		        <td>
+		        	<a th:href="@{${cate.menuLink}}" th:if="${cate.roleName} == 'ROLE_ADMIN'" th:text="${cate.menuName}"></a>
+		        	<a th:href="@{${cate.menuLink}}" th:if="${cate.roleName} == 'ROLE_USER'" th:text="${cate.menuName}"></a>
+		        </td>	
+		    </tr>
+   </table>
+       
+   </body>
+    
+</html>

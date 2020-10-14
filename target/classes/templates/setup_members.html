@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result Job</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+			<h2>Setup Members</h2>
+			<div class="my-3">
+			    
+							    <form th:action="@{/save-members}" th:object="${project_Members}" method="post">
+								    <div th:each="i : ${#numbers.sequence( 1, memberJobs, 1)}">
+											<a th:text="${ i } "></a>| &nbsp; 
+											<input type="text" th:field="*{user_id}">
+											
+									</div>
+									<div>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<button type="submit" >Submit members</button>
+									</div>
+									
+								</form>	
+						  	<div>
+						  		<a th:href="@{/add-member}" >Add more member</a>
+						  	</div> 
+			    <p><strong>Setup members: </strong> <span th:text="${insertMemberList_status} ? 'Completed' : 'setup inprogress'"></span></p>
+			</div>
+<a th:href="@{/create-job-finish}">Back</a><br>
+<h2><a th:href="@{/setup-jobs}" >Setup Jobs</a></h2><br>
+			  		
+        </div>
+    </div>
+</div>
+
+</body>
+</html>  

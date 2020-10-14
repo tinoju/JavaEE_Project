@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Setup Jobs</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+			<h2>Setup Jobs:</h2>
+			
+			<div class="my-3">
+			    
+			    <h4>View Job Numbers ES</h4>
+			    
+			    <div th:each="i : ${#numbers.sequence( 1, numberJobs, 1)}">
+					
+				   		<a th:text="${ i }" th:href="@{/create-job}">Setup Job</a>
+						<span th:if="${ i } == ${job_count_view}" >Setup done</span>
+				</div>
+			  	
+			  	<div>
+			  		<a th:href="@{/create-job}" >Create more job</a><br><br>
+			  		<a th:href="@{/create-job-finish}">Create Job Completed</a><br><br>
+			  	</div> 
+			  	
+			  	<div>
+			  		<a th:href="@{/add-member}" >Add more member</a>
+			  	</div> 
+			</div>
+			
+        </div>
+    </div>
+    
+</div>
+
+</body>
+</html> 

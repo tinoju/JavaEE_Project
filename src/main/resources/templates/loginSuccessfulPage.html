@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+   <head>
+   	  <meta charset = "ISO-8859-1" />
+      <link href = "css/styles.css" rel = "stylesheet"/>
+      <title>${title}</title>
+   </head>
+    
+   <body>
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+      <h4>Login Successful!</h4>
+      <h1>Welcome to Task Management Project</h1> 
+      
+   <h2>Menu view</h2>
+   <table>
+   <tr th:each="cate: ${categoryInfoList}">
+        <td>
+        	<!-- <a th:href="@{${cate.menuLink}}" th:if="${cate.roleName} == 'ROLE_ADMIN'" th:text="${cate.menuName}"></a>
+        	<a th:href="@{${cate.menuLink}}" th:if="${cate.roleName} == 'ROLE_USER'" th:text="${cate.menuName}"></a><br> -->
+        	<a th:href="@{/creat-project}" th:if="${cate.roleName} == 'ROLE_ADMIN'">CREAT PROJECT / ADMIN</a>
+        	<a th:href="@{/creat-project}" th:if="${cate.roleName} == 'ROLE_USER'">YOU CAN NOT CREAT PROJECT / USERS</a>
+        </td>	
+    </tr>
+   </table>
+  
+   </body>
+    
+</html>

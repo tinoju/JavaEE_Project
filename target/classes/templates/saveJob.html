@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Result Job</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container my-3">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+<h2>Detail Job 1</h2>
+<div class="my-3">
+    <p><strong>ID:</strong> <span th:text="${job.id}"></span></p>
+    <p><strong>Title:</strong> <span th:text="${job.title}"></span></p>
+    <p><strong>Score:</strong> <span th:text="${job.score}"></span></p>
+    <p><strong>Member Job:</strong> <span th:text="${job.member_job}"></span></p>
+    <p><strong>Days:</strong> <span th:text="${job.days}"></span></p>
+    <p><strong>Person create:</strong> <span th:text="${job.person_create}"></span></p>
+    <p><strong>Launch Date:</strong> <span th:text="${job.launchDate}"></span></p>
+    <p><strong>Person updated:</strong> <span th:text="${job.person_updated}"></span></p>
+    <p><strong>Update Date:</strong> <span th:text="${job.launchDate_updated}"></span></p>
+    <p><strong>Code Status:</strong> <span th:text="${job.code_status}"></span></p>
+    <p><strong>Completed:</strong> <span th:text="${job.home_flag} ? 'Yes' : 'No'"></span></p>
+    <p><strong>Complete Date:</strong> <span th:text="${job.time_completed}"></span></p>
+    
+</div>
+<a th:href="@{/create-job-finish}">Back</a><br>
+<a th:href="@{/create-job-finish}">Create Job Completed</a><br>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>  
